@@ -7,6 +7,7 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Cadastro from './pages/Cadastro/Cadastro';
 import Administrador from './pages/Administrador/Administrador';
+import Contato from './pages/Contato/Contato';
 import NaoEncontrado from './pages/NaoEncontrado/NaoEncontrado';
 import parseJWT from './services/auth';
 
@@ -37,6 +38,7 @@ const rotas = (
                 <Route exact path='/' component={Login}/>
                 <Route path='/cadastro' component={Cadastro}/>
                 <Route path='/home' component={Home}/>
+                <Route path='/contato' component={Contato}/>
                 <RotaPrivada path='/administrador' component={Administrador}/>
                 <Route component={NaoEncontrado}/>
             </Switch>

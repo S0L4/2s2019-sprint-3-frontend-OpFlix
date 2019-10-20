@@ -14,6 +14,11 @@ import fundoHist from '../../assets/img/OpFlix.banner.jpg'
 
 
 export default class Home extends Component {
+    
+    deslogar() {
+        localStorage.removeItem('usuarioAdm')
+    }
+
     render() {
         return (
             <body className='paginaCliente'>
@@ -30,7 +35,7 @@ export default class Home extends Component {
                         </ul>
 
                         <button>
-                            <Link to='/'>Sair</Link>
+                            <Link to='/' onClick={this.deslogar}>Sair</Link>
                         </button>
                     </nav>
                 </header>
@@ -45,6 +50,7 @@ export default class Home extends Component {
                             <h3>Nome do filme</h3>
                         </div>
                     </div>
+                    
                     <h2>Séries</h2>
                     <div className='item'>
                         <div className='container'>

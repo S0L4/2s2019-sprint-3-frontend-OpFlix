@@ -318,7 +318,7 @@ export default class Administrador extends Component {
                                     )
                                 })}
                             </tbody>
-                        </table>\
+                        </table>
 
                     </div>
                 </div>
