@@ -35,20 +35,28 @@ export default class Cadastro extends Component {
     }
 
     setarEstadoTipoUsuario = (event) => {
-        this.setState({idTIpoUsuario: Number(2)})
+        this.setState({idTIpoUsuario: event.target.value})
     }
 
     cadastrarUsuario = (event) => {
         event.preventDefault();
 
-        Axios.post('localhost:5000/api/usuarios', {
+        Axios.post('http://localhost:5000/api/usuarios', {
+            // headers: {
+            //     'Authorization': 'Bearer ' + localStorage.getItem('token')
+            // },          
+
             nome: this.state.nome,
             email: this.state.email,
             senha: this.state.senha,
+            idTIpoUsuario: 2
+        })           
+        .catch(erro => {
+            this.setState({erro: 'Ocorreu algum prolema. Por favor insira as suas informações de novo.'})
+            console.log(this.state)
         })
-            .catch(erro => {console.log(erro)})
     }
-    
+
     render() {  
         return (
             <section className='container'>
@@ -84,13 +92,20 @@ export default class Cadastro extends Component {
                                     placeholder='Senha'
                                     type='password'
                                     onChange={this.setarEstadoSenha}
-                                    value={this.state.senha}
+                                    value={this.state.senha}                                    
                                 />
                             </div>
 
                             <div className='loginButton'>
                                 <button className='button'>Cadastrar </button>
                             </div>
+
+                            <p 
+                                className="text__login"
+                                style={{color: "red", textAlign: "center"}}
+                            >   
+                                {this.state.erro}
+                            </p>
                         </form>
                     </div>
                 </div>

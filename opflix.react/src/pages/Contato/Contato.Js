@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 // componentes
 import Rodape from '../../components/Rodape'
@@ -22,8 +23,7 @@ export default class Contato extends Component {
                     <img src={opflixNome}></img>
 
                     <ul>
-                        <li><Link to='.lancamento'>Lançamentos</Link></li>
-                        <li><Link to='.historia'>História</Link></li>
+                        <li><Link to='/home'>Home</Link></li>
                         <li><Link to='/contato'>Contato</Link></li>
                     </ul>
 

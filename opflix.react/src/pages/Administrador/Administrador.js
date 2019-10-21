@@ -37,7 +37,7 @@ export default class Administrador extends Component {
     }
 
     deslogar() {
-        localStorage.removeItem('usuarioAdm')
+        localStorage.removeItem('token')
     }
 
     componentDidMount() {
@@ -51,7 +51,7 @@ export default class Administrador extends Component {
     listarLancamentos = () => {
         fetch('http://localhost:5000/api/lancamentos', {
             method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario') }
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
         })
             .then(x => x.json())
             .then(x => this.setState({ listaLancamento: x }))
@@ -60,7 +60,7 @@ export default class Administrador extends Component {
     listarCategorias = () => {
         Axios.get('http://localhost:5000/api/categorias', {
             method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario') }
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
         })
             .then(response => {
                 this.setState({ idCategoriaNavigation: response.data })
@@ -71,7 +71,7 @@ export default class Administrador extends Component {
     listarPlataformas = () => {
         Axios.get('http://localhost:5000/api/plataformas', {
             method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario') }
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
         })
             .then(response => {
                 this.setState({ idPlataformaNavigation: response.data })
@@ -82,7 +82,7 @@ export default class Administrador extends Component {
     listarClassificacoes = () => {
         Axios.get('http://localhost:5000/api/classificacoes', {
             method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario') }
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
         })
             .then(response => {
                 this.setState({ idClassificacaoNavigation: response.data })
@@ -93,7 +93,7 @@ export default class Administrador extends Component {
     listarModelos = () => {
         Axios.get('http://localhost:5000/api/tiposlancamento', {
             method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario') }
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
         })
             .then(response => {
                 this.setState({ idTipoLancamentoNavigation: response.data })
@@ -127,7 +127,7 @@ export default class Administrador extends Component {
 
     classificacaoLancamento = (event) => {
         console.log(event.target.value)
-        this.setState({ idClassificacao: (typeof(event.target.value) === 'number' )? Number(event.target.value) : 1 });
+        this.setState({ idClassificacao: (typeof (event.target.value) === 'number') ? Number(event.target.value) : 1 });
     }
 
     tipoLancamento = (event) => {
@@ -140,8 +140,8 @@ export default class Administrador extends Component {
         fetch('http://localhost:5000/api/lancamentos', {
             method: "POST",
             headers: {
-                'Accept' : 'application/json',
-                'Content-Type' : 'application/json',
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             body: JSON.stringify({
@@ -176,9 +176,11 @@ export default class Administrador extends Component {
                     </nav>
                 </header>
 
-                <div className='estatisticas'>
+                {/* <div className='estatisticas'>
                     <div className='lancEstatisticas'>
-                        <p>132</p>
+                        {this.state.listaLancamento.map(element => {
+                            <p>{element.idLancamento}</p>
+                        })}
                         <h3>Lançamentos</h3>
                     </div>
 
@@ -191,7 +193,7 @@ export default class Administrador extends Component {
                         <p>50</p>
                         <h3>Categorias</h3>
                     </div>
-                </div>
+                </div> */}
 
                 <div className='adm'>
                     <Titulo titulo='Administração' />

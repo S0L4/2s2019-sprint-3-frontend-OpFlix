@@ -14,9 +14,41 @@ import fundoHist from '../../assets/img/OpFlix.banner.jpg'
 
 
 export default class Home extends Component {
-    
+
+    constructor() {
+        super();
+        this.state = {
+            data: [],
+            idTipoLancamentoNavigation: []
+        }
+    }
+
     deslogar() {
-        localStorage.removeItem('usuarioAdm')
+        localStorage.removeItem('token')
+    }
+
+    componentDidMount() {
+        this.listarLancamentos();
+        this.listarModelos();
+    }
+    
+    listarLancamentos = () => {
+        fetch('http://localhost:5000/api/lancamentos') 
+        .then(response => response.json())
+        .then(response => {
+            this.setState({data: response})
+            console.log(response);
+        })
+    }
+
+    listarModelos = () => {
+        Axios.get('http://localhost:5000/api/tiposlancamento', {
+            method: 'GET',
+        })
+            .then(response => {
+                this.setState({ idTipoLancamentoNavigation: response.data })
+            })
+            .catch(erro => console.log(erro))
     }
 
     render() {
@@ -29,8 +61,6 @@ export default class Home extends Component {
                         <img src={opflixNome}></img>
 
                         <ul>
-                            <li><Link to='.lancamento'>Lançamentos</Link></li>
-                            <li><Link to='.historia'>História</Link></li>
                             <li><Link to='/contato'>Contato</Link></li>
                         </ul>
 
@@ -44,13 +74,15 @@ export default class Home extends Component {
                     <Titulo titulo='Lançamentos' />
 
                     <h2>Filmes</h2>
-                    <div className='item'>
                         <div className='container'>
-                            <img src=''></img>
-                            <h3>Nome do filme</h3>
+                            {this.state.data.map(element => (
+                                <div className='item'>
+                                    <img src={element.imagem} width="144px"></img>
+                                    <h3>{element.titulo}</h3>    
+                                </div>                          
+                            ))}
                         </div>
-                    </div>
-                    
+
                     <h2>Séries</h2>
                     <div className='item'>
                         <div className='container'>

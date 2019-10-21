@@ -42,11 +42,11 @@ export default class Login extends Component {
                     localStorage.setItem('token', data.data.token);
                         this.props.history.push('/administrador')            
                 } else {
-                    console.log('Algo de  errado não esta certo')
+                    console.log('Algo de errado não esta certo')
                 }
             })
             .catch(erro => {
-                this.setState({erro: 'Email ou senha ivalido'})
+                this.setState({erro: 'Email ou senha ivalido.'})
                 console.log(erro)
             })
     }
@@ -84,6 +84,13 @@ export default class Login extends Component {
                             <div className='loginButton'>
                                 <button className='button'>Login </button>
                             </div>
+                            
+                            <p 
+                                className="text__login"
+                                style={{color: "red", textAlign: "center"}}
+                            >   
+                                {this.state.erro}
+                            </p>
                         </form>
 
                         <p>Esqueceu a sua senha?</p>

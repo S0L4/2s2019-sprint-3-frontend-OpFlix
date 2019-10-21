@@ -9,7 +9,7 @@ import Cadastro from './pages/Cadastro/Cadastro';
 import Administrador from './pages/Administrador/Administrador';
 import Contato from './pages/Contato/Contato';
 import NaoEncontrado from './pages/NaoEncontrado/NaoEncontrado';
-import parseJWT from './services/auth';
+import {parseJwt} from './services/auth';
 
 // rotas
 import { Route, Link, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
@@ -19,12 +19,12 @@ import * as serviceWorker from './serviceWorker';
 const RotaPrivada = ({component: Component}) => (
     <Route
         render={props =>
-            localStorage.getItem('token') !== null ?
+            parseJwt().TipoUsuario === 'Administrador' ?
             (
                 <Component {...props}/>
             ) : (
                 <Redirect 
-                    to={{pathname: '/', state: {from: props.location}}}
+                    to={{pathname: '/home', state: {from: props.location}}}
                 />
             )
         }
