@@ -1,5 +1,7 @@
 import React from 'react';
 
+// estilo 
+import '../assets/css/rodape.css'
 function Rodape() {
     return (
         <footer className='rodape'>

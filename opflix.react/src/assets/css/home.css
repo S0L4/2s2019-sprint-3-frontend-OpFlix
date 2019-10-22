@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.paginaCliente {
+    background-color: #191919;
+}
+
+/* NAV */
+
+.nav {
+    background-color: rgb(8, 8, 8);
+    padding: 1.5em;
+}
+
+.navBar {
+    display: flex;
+    width: 100%;
+}
+
+.navBar > li {
+    margin-left: 3em;
+    color: white;
+    padding: 1em;
+    font-size: 1.5em;
+    font-family: 'Open Sans';
+    list-style-type: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    
+}
+
+a:hover{
+    border-bottom: 2px solid #DB0909;
+    border-radius: 2px 0 2px 2px;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.005, 0.625, 0.365, 0.0840);
+
+}
+
+.navBar > button {
+    margin-top: 0.68em;
+    margin-left: 400px;
+    border: #DB0909;
+    background-color: #DB0909;
+    font-family: 'Open Sans';
+    font-size: 2em;
+    width: 700px;
+    height: 50px;
+    opacity: 0.9;
+    cursor:pointer;
+}
+
+button:hover {
+    background:linear-gradient(to bottom, #DB0909 40%, rgb(173, 11, 11) 100%);
+    transition-duration: 0.2s;
+    margin-top: 0.65em;
+}
+
+/* LANÇAMENTOS */
+
+.container {
+    display: flex;
+    color: white;
+    background-color:black;
+}
+
+.item {
+    
+}
+
+/* HISTÓRIA */
+
+.historia {
+    margin-top: 300px;
+    background-image: url('../img//OpFlix.banner.jpg');
+
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.histContent {
+    padding: 10em 0 10em 0;
+}
+
+.histContent > p {
+    font-size: 2em;
+    background-color: rgba(0, 0, 0, 0.609);
+    width: 100%;
+    color: white;
+    font-family: 'Open Sans';
+    padding: 1.5em
+}
+

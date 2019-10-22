@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import Axios from 'axios';
 
 // componentes
 import Rodape from '../../components/Rodape'
@@ -11,7 +12,7 @@ import opflixNome from '../../assets/img/OpFlix.nome.png'
 import fundoHist from '../../assets/img/OpFlix.banner.jpg'
 
 // estilo
-
+import '../../assets/css/home.css'
 
 export default class Home extends Component {
 
@@ -31,14 +32,14 @@ export default class Home extends Component {
         this.listarLancamentos();
         this.listarModelos();
     }
-    
+
     listarLancamentos = () => {
-        fetch('http://localhost:5000/api/lancamentos') 
-        .then(response => response.json())
-        .then(response => {
-            this.setState({data: response})
-            console.log(response);
-        })
+        fetch('http://localhost:5000/api/lancamentos')
+            .then(response => response.json())
+            .then(response => {
+                this.setState({ data: response })
+                console.log(response);
+            })
     }
 
     listarModelos = () => {
@@ -55,14 +56,13 @@ export default class Home extends Component {
         return (
             <body className='paginaCliente'>
 
-                <header classname='nav'>
+                <header className='nav'>
                     <nav className='navBar'>
                         <img src={logo}></img>
                         <img src={opflixNome}></img>
 
-                        <ul>
+                            <li><Link to='/home'>Home</Link></li>
                             <li><Link to='/contato'>Contato</Link></li>
-                        </ul>
 
                         <button>
                             <Link to='/' onClick={this.deslogar}>Sair</Link>
@@ -73,29 +73,19 @@ export default class Home extends Component {
                 <div className='lancamento'>
                     <Titulo titulo='Lançamentos' />
 
-                    <h2>Filmes</h2>
-                        <div className='container'>
-                            {this.state.data.map(element => (
-                                <div className='item'>
-                                    <img src={element.imagem} width="144px"></img>
-                                    <h3>{element.titulo}</h3>    
-                                </div>                          
-                            ))}
-                        </div>
-
-                    <h2>Séries</h2>
-                    <div className='item'>
-                        <div className='container'>
-                            <img src=''></img>
-                            <h3>Nome da série</h3>
-                        </div>
+                    <div className='container'>
+                        {this.state.data.map(element => (
+                            <div className='item'>
+                                <img src={element.imagem} width="144px"></img>
+                                <h3>{element.titulo}</h3>
+                            </div>
+                        ))}
                     </div>
+
                 </div>
 
                 <div className='historia'>
                     <Titulo titulo='Historia' />
-
-                    <img src={fundoHist}></img>
 
                     <div className='histContent'>
                         <p>Bacon ipsum dolor amet shankle spare ribs chuck burgdoggen alcatra

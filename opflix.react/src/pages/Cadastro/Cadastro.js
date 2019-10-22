@@ -5,7 +5,7 @@ import Axios from 'axios';
 import opflixNome from '../../assets/img/OpFlix.nome.png'
 
 // estilo
-import '../../assets/css/login.css'
+import '../../assets/css/cadastro.css'
 
 export default class Cadastro extends Component {
 

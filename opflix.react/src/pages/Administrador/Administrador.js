@@ -33,6 +33,7 @@ export default class Administrador extends Component {
             duracaoMin: "",
             idClassificacao: "",
             idTipoLancamento: "",
+            imagem: ""
         }
     }
 
@@ -134,6 +135,10 @@ export default class Administrador extends Component {
         this.setState({ idTipoLancamento: Number(event.target.value) });
     }
 
+    imagem = (event) => {
+        this.setState({ imagem: event.target.value })
+    }
+
     cadastrarLancamento = (event) => {
         event.preventDefault();
 
@@ -152,7 +157,8 @@ export default class Administrador extends Component {
                 idCategoria: this.state.idCategoria,
                 idClassificao: this.state.idClassificacao,
                 idTipoLancamento: this.state.idTipoLancamento,
-                duracaoMin: this.state.duracaoMin
+                duracaoMin: this.state.duracaoMin,
+                imagem: this.state.imagem
             }),
         })
             .then(response => response.json())
@@ -293,6 +299,10 @@ export default class Administrador extends Component {
                                         )
                                     })}
                                 </select>
+
+                                <h3>Imagem</h3>
+                                <input className="titulo" type="text" onChange={this.imagem} value={this.state.imagem} />
+
                             </div>
 
                             <button className='botaoCadastrar' onClick={this.cadastrarLancamento}>Cadastrar</button>

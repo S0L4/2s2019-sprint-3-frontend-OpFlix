@@ -10,7 +10,7 @@
  
 }
 
-.paginaLogin {
+.paginaCadastro {
     width: 100vw;
     height: 100vh;
     background-image: url('../img//Login.background.jpg');
@@ -29,7 +29,7 @@
     margin-top: 200px;
 }
 
-.formLogin {
+.formCadastro {
     margin-left: 900px;
     margin-top: 300px;
 }
@@ -44,6 +44,7 @@
     border-bottom: 1px solid white;
     color: white;
     outline: none
+
 }
 
 ::-webkit-input-placeholder {
@@ -62,7 +63,7 @@
     color: white;  
  }
 
-.botao {
+.button {
     margin-top: 50px;
     border: #DB0909;
     background-color: #DB0909;
@@ -79,20 +80,4 @@
     font-size: 1.3em;
     margin-right: 175px;
     margin-top: 20px;
-}
-
-.giovanna {
-    text-decoration: none;
-    color: black;
-    font-family: 'Open Sans';
-    font-size: 1.1em;
-    margin-left: 165px;
-
-}
-
-.giovanna2 {
-    text-decoration: none;
-    color: black;
-    font-family: 'Open Sans';
-    font-size: 1.1em;
 }
