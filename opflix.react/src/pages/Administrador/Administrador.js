@@ -12,7 +12,7 @@ import opflixNome from '../../assets/img/OpFlix.nome.png'
 import { expressionStatement } from '@babel/types';
 
 // estilo
-
+import '../../assets/css/adm.css'
 
 export default class Administrador extends Component {
 
@@ -159,6 +159,7 @@ export default class Administrador extends Component {
                 idTipoLancamento: this.state.idTipoLancamento,
                 duracaoMin: this.state.duracaoMin,
                 imagem: this.state.imagem
+                
             }),
         })
             .then(response => response.json())
@@ -182,24 +183,6 @@ export default class Administrador extends Component {
                     </nav>
                 </header>
 
-                {/* <div className='estatisticas'>
-                    <div className='lancEstatisticas'>
-                        {this.state.listaLancamento.map(element => {
-                            <p>{element.idLancamento}</p>
-                        })}
-                        <h3>Lançamentos</h3>
-                    </div>
-
-                    <div className='userEstatisticas'>
-                        <p>29</p>
-                        <h3>Usuários</h3>
-                    </div>
-
-                    <div className='cateEstatisticas'>
-                        <p>50</p>
-                        <h3>Categorias</h3>
-                    </div>
-                </div> */}
 
                 <div className='adm'>
                     <Titulo titulo='Administração' />
@@ -246,19 +229,19 @@ export default class Administrador extends Component {
 
                     <div className='cadastroLancamento'>
                         <h2>Cadastrar Lançamento</h2>
-                        <form >
+                        <form>
                             <div>
                                 <h3>Titulo</h3>
-                                <input className="titulo" type="text" onChange={this.tituloLancamento} value={this.state.titulo} />
+                                <input className="input" type="text" onChange={this.tituloLancamento} value={this.state.titulo} />
 
                                 <h3>Sinopse</h3>
-                                <input className="sinopse" type="text" onChange={this.sinopseLancamento} value={this.state.sinopse} />
+                                <input className="input" type="text" onChange={this.sinopseLancamento} value={this.state.sinopse} />
 
                                 <h3>Data de lançamento</h3>
-                                <input className="dataLancamento" type="dateTime" onChange={this.dataLancamento} value={this.state.dataLancamento} />
+                                <input className="input"type="dateTime" onChange={this.dataLancamento} value={this.state.dataLancamento} />
 
                                 <h3>Gênero</h3>
-                                <select className='genero' onChange={this.categoriaLancamento}>
+                                <select className="input" onChange={this.categoriaLancamento}>
                                     <option value='null'>Selecione</option>
                                     {this.state.idCategoriaNavigation.map(element => {
                                         return (
@@ -268,7 +251,7 @@ export default class Administrador extends Component {
                                 </select>
 
                                 <h3>Plataforma</h3>
-                                <select className='plataforma' onChange={this.plataformaLancamento}>
+                                <select className="input" onChange={this.plataformaLancamento}>
                                     <option value='null'>Selecione</option>
                                     {this.state.idPlataformaNavigation.map(element => {
                                         return (
@@ -278,10 +261,10 @@ export default class Administrador extends Component {
                                 </select>
 
                                 <h3>Duração em min</h3>
-                                <input className="duracao" type="number" onChange={this.duracaoMinLancamento} value={this.state.duracaoMin} />
+                                <input className="input" type="number" onChange={this.duracaoMinLancamento} value={this.state.duracaoMin} />
 
                                 <h3>Classificação</h3>
-                                <select className='classificacao' onChange={this.classificacaoLancamento}>
+                                <select className="input" onChange={this.classificacaoLancamento}>
                                     <option value='null'>Selecione</option>
                                     {this.state.idClassificacaoNavigation.map(element => {
                                         return (
@@ -291,7 +274,7 @@ export default class Administrador extends Component {
                                 </select>
 
                                 <h3>Modelo</h3>
-                                <select className='modelo' onChange={this.tipoLancamento}>
+                                <select className="input" onChange={this.tipoLancamento}>
                                     <option value='null'>Selecione</option>
                                     {this.state.idTipoLancamentoNavigation.map(element => {
                                         return (
@@ -301,7 +284,7 @@ export default class Administrador extends Component {
                                 </select>
 
                                 <h3>Imagem</h3>
-                                <input className="titulo" type="text" onChange={this.imagem} value={this.state.imagem} />
+                                <input className="input" type="text" onChange={this.imagem} value={this.state.imagem} />
 
                             </div>
 
@@ -321,11 +304,11 @@ export default class Administrador extends Component {
                             </thead>
 
                             <tbody className='tabela'>
-                                {this.state.listaLancamento.map(element => {
+                                {this.state.idCategoriaNavigation.map(element => {
                                     return (
-                                        <tr key={element.idLancamento}>
-                                            <td>{element.idLancamento}</td>
-                                            <td>{element.idCategoriaNavigation.nome}</td>
+                                        <tr key={element.idCategoria}>
+                                            <td>{element.idCategoria}</td>
+                                            <td>{element.nome}</td>
                                         </tr>
                                     )
                                 })}

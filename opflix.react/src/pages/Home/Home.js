@@ -9,7 +9,6 @@ import Titulo from '../../components/Titulo'
 // imagens 
 import logo from '../../assets/img/OpFlix.logo.red.png'
 import opflixNome from '../../assets/img/OpFlix.nome.png'
-import fundoHist from '../../assets/img/OpFlix.banner.jpg'
 
 // estilo
 import '../../assets/css/home.css'
@@ -69,20 +68,21 @@ export default class Home extends Component {
                         </button>
                     </nav>
                 </header>
-
+                
                 <div className='lancamento'>
                     <Titulo titulo='Lançamentos' />
 
                     <div className='container'>
                         {this.state.data.map(element => (
-                            <div className='item'>
-                                <img src={element.imagem} width="144px"></img>
+                            <div className='itemFilme'>
+                                <img src={element.imagem} width="144px" border='2px solid black'></img>
                                 <h3>{element.titulo}</h3>
                             </div>
                         ))}
                     </div>
 
                 </div>
+                
 
                 <div className='historia'>
                     <Titulo titulo='Historia' />

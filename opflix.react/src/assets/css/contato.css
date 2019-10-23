@@ -4,7 +4,7 @@
     text-decoration: none;
 }
 
-.paginaCliente {
+.paginaContato {
     background-color: #191919;
 }
 
@@ -62,46 +62,8 @@ button:hover {
     margin-top: 0.65em;
 }
 
-/* LANÇAMENTOS */
+/* CONTATO */
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    color: white;
-    background-color:black;
-    padding: 3em;
-    margin-left: 300px;
+.formContato {
+
 }
-
-.itemFilme {
-    background-color: rgba(0, 0, 0, 0.609);
-    padding: 1.5em;
-    width: 150px;
-    font-size: 0.6em;
-    margin: 10px;
-}
-
-/* HISTÓRIA */
-
-.historia {
-    margin-top: 50%;
-    background-image: url('../img//OpFlix.banner.jpg');
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-}
-
-.histContent {
-    padding: 10em 0 10em 0;
-}
-
-.histContent > p {
-    font-size: 2em;
-    background-color: rgba(0, 0, 0, 0.609);
-    width: 100%;
-    color: white;
-    font-family: 'Open Sans';
-    padding: 1.5em
-}
-
